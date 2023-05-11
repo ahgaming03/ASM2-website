@@ -1,0 +1,124 @@
+body {
+    font-family: "Raleway-Semibold";
+    /* background-color: red; */
+    background-size: contain;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Raleway-SemiBold";
+}
+
+h1 {
+    font-family: "Farm-House";
+}
+
+/* Raleway */
+
+@font-face {
+    font-family: "Raleway-Regular";
+    src: url("/font/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Raleway-Light";
+    src: url("/font/Raleway-Light.ttf");
+}
+
+@font-face {
+    font-family: "Raleway-Medium";
+    src: url("/font/Raleway-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Raleway-SemiBold";
+    src: url("/font/Raleway-SemiBold.ttf");
+}
+
+
+/* Farm house font */
+
+@font-face {
+    font-family: "Farm-House";
+    src: url("/font/Farm House.otf");
+}
+
+@font-face {
+    font-family: "Farm-House-Full";
+    src: url("/font/Farm House Full.otf");
+}
+
+/* cart */
+.cart-box {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+}
+
+input[type=number] {
+    width: 60px;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+.buttonUpdate {
+    display: none;
+}
+
+/* navbar */
+#titlelogo {
+    font-family: "Farm-House-Full";
+}
+
+.bg-wood {
+    background-image: linear-gradient(to right, rgba(240, 174, 121, 0.795), rgba(167, 119, 65, 0.747));
+}
+
+/* footer */
+#about {
+    font-size: xx-large;
+}
+
+#visit {
+    font-size: xx-large;
+}
+
+#underline a {
+    text-decoration: none;
+}
+
+#underline a:hover {
+    text-decoration: underline;
+}
+
+
+/* product */
+.image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Sign in & Sign up */
+.sign-box {
+    width: 90%;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(228, 228, 228);
+    background-image: url("");
+    border: 2px solid #ccc;
+    border-radius: 3%;
+    padding: 20px;
+}
+
+#error {
+    font-size: small;
+    font-style: italic;
+    color: red;
+}

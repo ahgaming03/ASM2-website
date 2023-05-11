@@ -14,26 +14,30 @@ session_start();
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <?php
-            if ( $_SERVER['PHP_SELF'] <> '/login.php' && $_SERVER['PHP_SELF'] <> '/signup.php') {
+            if ($_SERVER['PHP_SELF'] <> '/login.php' && $_SERVER['PHP_SELF'] <> '/signup.php') {
                 ?>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <?php
-                        if ($_SERVER['PHP_SELF'] == '/index.php') {
-                            ?>
-
-                            <form class="d-flex" method="post">
-                                <input class="form-control me-2" type="search" name="input" placeholder="Search">
-                                <button class="nav-link" type="submit" name="search"><i
-                                        class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
-                            </form>
-
-                        <?php } ?>
-
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Brand
+                            </a>
+                            <ul class="dropdown-menu">
+                                <form action="category.php" method="post">
+                                    <li><button type="submit" class="dropdown-item" name="brand" value="ap">Apple</button></li>
+                                    <li><button type="submit" class="dropdown-item" name="brand" value="ss">Samsung</button></li>
+                                </form>
+                            </ul>
+                        </li>
+                        <form class="d-flex" action="search.php" method="post">
+                            <input class="form-control me-2" type="search" name="input" placeholder="Search">
+                            <button type="submit" class="nav-link" name="search"><i
+                                    class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
+                        </form>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <!-- Cart -->
@@ -42,14 +46,12 @@ session_start();
                                 <i id="navbar-cart" class="fa-solid fa-cart-shopping fa-2xl"></i>
                             </a>
                         </li>
-
                         <!-- User account -->
                         <?php if (empty($_SESSION['loggedin'])) { ?>
 
                             <li class="nav-link">
                                 <a href="login.php"> <i class="fa-solid fa-user fa-2xl"></i> </a>
                             </li>
-
                         <?php } else { ?>
 
                             <li class="nav-item dropdown">
@@ -57,7 +59,7 @@ session_start();
                                     <i class="fa-solid fa-circle-user fa-2xl"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-lg-end">
-                                    <!-- <li><a class="dropdown-item" href="#">Profile</a></li> -->
+                                    <!-- <li><a class="dropdown-item" href="profile.php">Profile</a></li> -->
                                     <li><a class="dropdown-item" href="logout.php">Log out</a>
                                 </ul>
                             </li>
@@ -65,7 +67,6 @@ session_start();
                         <?php } ?>
 
                     </ul>
-
                 </div>
             <?php } ?>
         </div>

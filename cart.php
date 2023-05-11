@@ -14,8 +14,6 @@
 
         <div class="cart-box" id="cart">
             <h2>Shopping cart</h2>
-
-
             <?php
             if (empty($_SESSION["user_id"])) {
                 ?>
@@ -34,27 +32,19 @@
                 $user_id = $_SESSION["user_id"];
 
                 $stmt = $conn->prepare(
-                    "SELECT p.id, ol.order_id, p.name AS pName, b.name AS bName, p.price, ol.quantity, p.image_url
-            FROM ordersline AS ol
-            INNER JOIN products AS p
-            ON ol.product_id = p.id
-            INNER JOIN brands AS b
-            ON p.brand_id = b.id
-            RIGHT JOIN orders AS o
-            ON ol.order_id = o.id
+                    "SELECT p.id, ol.order_id, p.name AS pName, b.name AS bName, p.price, ol.quantity, p.image_url FROM ordersline AS ol
+            INNER JOIN products AS p ON ol.product_id = p.id
+            INNER JOIN brands AS b ON p.brand_id = b.id
+            RIGHT JOIN orders AS o ON ol.order_id = o.id
             WHERE  o.user_id = $user_id AND o.status = 0"
                 );
-
                 // Execute query
                 $stmt->execute();
-
                 // Get query result as a result object
                 $result = $stmt->get_result();
-
                 // Fetch result rows as an associative array
                 while ($row = $result->fetch_assoc()) {
                     ?>
-
                     <div class="row" id="product-<?= $row['id'] ?>">
                         <div class="col-md-2">
                             <img src="<?= $row['image_url'] ?>" class="img-fluid rounded-start" alt="<?= $row['pName'] ?>"
@@ -69,7 +59,7 @@
                                     <?= $row['bName'] ?>
                                 </p>
                                 <div>
-                                    <input type="number" id="quantity-<?= $row['id'] ?>" min="1" value="<?= $row['quantity'] ?>"
+                                    <input type="number" id="quantity-<?= $row['id'] ?>" min="1"  value="<?= $row['quantity'] ?>"
                                         width="10px"
                                         onchange="updateQuantity(<?= $row['id'] ?>, <?= $row['order_id'] ?>, this.value)">
                                     <button type="button" class="btn btn-danger"
@@ -103,8 +93,8 @@
                         <span id="subtotal">
                             <?= "$" . $row['total'] ?>
                         </span>
-                        <button type="button" class="btn btn-primary" id="checkOut" data-bs-toggle="modal" data-bs-target="#check-out"
-                            onclick="checkOut(<?= $row['id'] ?>)">Check out</button>
+                        <button type="button" class="btn btn-primary" id="checkOut" data-bs-toggle="modal"
+                            data-bs-target="#check-out" onclick="checkOut(<?= $row['id'] ?>)">Check out</button>
                     </div>
 
                     <!-- Modal -->

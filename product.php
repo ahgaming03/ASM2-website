@@ -107,7 +107,7 @@ if (isset($_POST['add_to_cart'])) {
 
     // Retrieve the product information from the database
     $id = $_GET['id'];
-    $sql = "SELECT id, name, stoke, price, image_url, description  FROM products WHERE id = $id";
+    $sql = "SELECT id, name, price, image_url, description  FROM products WHERE id = $id";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
@@ -115,7 +115,7 @@ if (isset($_POST['add_to_cart'])) {
         $row = $result->fetch_assoc();
         ?>
 
-        <div class="box">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
                     <div class="image">
@@ -135,7 +135,7 @@ if (isset($_POST['add_to_cart'])) {
 
                     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                         <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
-                        <input type="number" name="quantity" id="quantity" min="1" max="<?= $row['stoke'] ?>" value="1">
+                        <input type="number" name="quantity" id="quantity" min="1" value="1">
                         <button type="submit" class="btn btn-success" name="add_to_cart">Add to cart</button>
                     </form>
                 </div>
