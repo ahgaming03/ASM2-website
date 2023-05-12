@@ -1,6 +1,6 @@
 # ASM2-website
 
-Use [localhost/phpmysql](http://localhost/phpmysql) to create database
+Use [localhost/phpmyadmin](http://localhost/phpmyadmin/) to create database
 * mySQL login
 ```
 + username: useradmin
