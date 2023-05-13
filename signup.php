@@ -46,8 +46,6 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             ';
-                            foreach ($_POST as $key => $value) {
-                                $_POST[$key] = strip_tags($value);
                             }
                         }
                     } catch (mysqli_sql_exception) {
