@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($stmt->num_rows() == 1) {
                     // Bind result variables
                     $stmt->bind_result($id, $username, $hashed_password);
-                    // if(mysqli_stmt_fetch($stmt)){
                     if ($stmt->fetch()) {
                         if (password_verify($password, $hashed_password)) {
                             // Password is correct, so start a new session
